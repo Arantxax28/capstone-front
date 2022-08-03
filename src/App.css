@@ -2,9 +2,11 @@
 
 .container {
   background-color: #F3E9DD;
-  font-family: "Courier New";
+  font-family: Avenir;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 main {
@@ -15,7 +17,7 @@ main {
   text-align: center;
 }
 
-.board-section {
+.form-section {
   display: inline-block;
   width: 80%;
   text-align: left;

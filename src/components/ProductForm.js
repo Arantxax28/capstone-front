@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import React from 'react';
 import {useState} from 'react';
 
-const defaultProduct = {name:"", brand: "", category: "", price:0.00, purchaseDate:"2022-01-01", expirationDate:"2022-01-01"};
 
 const ProductForm = (props) => {
+    const defaultProduct = {name:"", brand: "", category: "", price:"", purchaseDate:"", expirationDate:""};
 
     const [productData, setProductData] = useState(defaultProduct);
 
@@ -23,6 +23,7 @@ const ProductForm = (props) => {
     const handleFormSubmission = (event) => {
         event.preventDefault();
         props.makeNewProductCallback(productData);
+        setProductData(defaultProduct);
     };
 
     return (
@@ -42,11 +43,11 @@ const ProductForm = (props) => {
             <input
                 id="Price" name="price" type="text" value={productData.price} onChange={handleFormInput}/>
 
-            <label htmlFor="Purchase Date">Purchase Date</label>
+            <label htmlFor="Purchase Date">Purchase Date (ex.yyyy-mm-dd)</label>
             <input
                 id="Purchase Date" name="purchaseDate" type="text" value={productData.purchaseDate} onChange={handleFormInput}/>
 
-            <label htmlFor="Expiration Date">Expiration Date</label>
+            <label htmlFor="Expiration Date">Expiration Date (ex.yyyy-mm-dd)</label>
             <input
                 id="Expiration Date" name="expirationDate" type="text" value={productData.expirationDate} onChange={handleFormInput}/>
 

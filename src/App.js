@@ -1,4 +1,10 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import ProductList from './components/ProductList.js';
 import ProductForm from './components/ProductForm.js';
 import './App.css';
@@ -45,14 +51,14 @@ const App = () => {
   };
 
   return (
-  <body className={"container"}>
+  <div className={"container"}>
     <header>
       <h1>Hey, there!</h1>
     </header>
     <main>
         <div>
             <h2>Add New Items</h2>
-            <section className="board-section">
+            <section className="form-section">
             <ProductForm makeNewProductCallback={makeNewProduct}/>
             </section>
         </div>
@@ -63,7 +69,7 @@ const App = () => {
                 deleteProductsCallback = {deleteProducts}/>
         </div>
     </main>
-  </body>
+  </div>
   );
 }
 
