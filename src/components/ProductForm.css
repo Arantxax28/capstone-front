@@ -1,0 +1,9 @@
+
+.board-form label {
+    display: block;
+    margin-bottom: 1vh;
+}
+
+label input[type="text"] {
+    margin-left: 5px;
+}
