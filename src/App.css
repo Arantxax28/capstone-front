@@ -5,7 +5,7 @@ html,body{
 }
 .container {
   color: black;
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-weight: normal;
   font-family: Arial;
   display: flex;
@@ -17,18 +17,19 @@ html,body{
 h1{
   font-family: "Square Peg";
   font-weight: lighter;
-  font-size: 7vw;
+  font-size: 5vw;
   padding-left: 3vw;
 }
 
 h2{
   font-family: Avenir;
-  font-size: 2.5vw;
+  font-size: 1.5vw;
 }
 main {
+  padding-top: 1.5vw;
   display: flex;
   flex-direction: column;
-  margin: 0 10%;
+  margin: 0 8%;
   flex-wrap: wrap;
   text-align: center;
 }

@@ -64,9 +64,11 @@ const App = () => {
         {/*</div>*/}
         <div className="product-list">
             <h2>MY ITEMS</h2>
+            <section className="product-scroll">
             <ProductList
                 products = {products}
                 deleteProductsCallback = {deleteProducts}/>
+            </section>
         </div>
     </main>
   </div>
