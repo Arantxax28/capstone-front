@@ -3,12 +3,38 @@ import PropTypes from "prop-types";
 
 import React from 'react';
 import {useState} from 'react';
+import {Link} from "react-router-dom";
+import axios from "axios";
 
 
 const ProductForm = (props) => {
     const defaultProduct = {name:"", brand: "", category: "", price:"", purchaseDate:"", expirationDate:""};
 
     const [productData, setProductData] = useState(defaultProduct);
+    const [products, setProducts] = useState([]);
+    const url = 'http://localhost:8080/products';
+
+    const getProductsFromAPI = () => {
+        axios.get(url)
+            .then((response) => {
+                setProducts(response.data);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log("Couldn't get products!");
+            });
+    };
+
+    const makeNewProduct = (data) => {
+        console.log(data);
+        axios.post(url, data)
+            .then((response) => {
+                getProductsFromAPI();
+            })
+            .catch((error) => {
+                console.log("Could not add product!");
+            });
+    };
 
     const handleFormInput = (event) => {
         const inputElement = event.target;
@@ -22,12 +48,15 @@ const ProductForm = (props) => {
 
     const handleFormSubmission = (event) => {
         event.preventDefault();
-        props.makeNewProductCallback(productData);
+        makeNewProduct(productData);
         setProductData(defaultProduct);
     };
 
     return (
+        <div className="new-item-page">
+        {/*<>*/}
         <form onSubmit={handleFormSubmission} >
+            <section>
             <label htmlFor="Name">Name</label>
             <input id="Name" name="name" type="text" value={productData.name} onChange={handleFormInput}/>
 
@@ -50,16 +79,22 @@ const ProductForm = (props) => {
             <label htmlFor="Expiration Date">Expiration Date (ex.yyyy-mm-dd)</label>
             <input
                 id="Expiration Date" name="expirationDate" type="text" value={productData.expirationDate} onChange={handleFormInput}/>
+            </section>
 
-            <input type="submit"/>
+            <input className="submit-button" type="submit" value="Add Item"/>
 
 
         </form>
 
+        <Link to="/" className="home-link">
+            {/*<br />*/}
+            Return to Dashboard
+        </Link>
+        {/*</>*/}
+        </div>
     );
 
 };
-
 ProductForm.protoTypes = {
     makeNewProductCallback: PropTypes.func.isRequired,
 

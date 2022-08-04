@@ -1,9 +1,45 @@
-
 label {
     display: block;
     margin-bottom: 1vh;
 }
 
-label input[type="text"] {
+label input{
     margin-left: 5px;
 }
+
+input{
+    border-radius: 7px;
+    margin-bottom: 1.5vw;
+
+}
+
+form,section {
+    padding-bottom: 1vw;
+}
+
+.new-item-page {
+    background-color: #bcb8b1;
+    font-family: Avenir;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding-top: 5vw;
+    padding-left: 5vw;
+}
+
+.submit-button, .home-link {
+    background-color: #4a4e69;
+    color: white;
+    font-size: 1vw;
+    border-radius: 7px;
+    padding: .3vw;
+}
+
+/*a.home-link {*/
+/*    background-color: #283618;*/
+/*    color: white;*/
+/*    display: block;*/
+/*    padding: 0;*/
+/*}*/
+

@@ -1,20 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;600&family=Grape+Nuts&family=Source+Code+Pro:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Square+Peg&display=swap");
+html,body{
+  height: 100%;
+  background-color: #bcb8b1;
+}
 .container {
-  background-color: #F3E9DD;
-  font-family: Avenir;
+  color: black;
+  font-size: 2vw;
+  font-weight: normal;
+  font-family: Arial;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
 
+h1{
+  font-family: "Square Peg";
+  font-weight: lighter;
+  font-size: 7vw;
+  padding-left: 3vw;
+}
+
+h2{
+  font-family: Avenir;
+  font-size: 2.5vw;
+}
 main {
   display: flex;
   flex-direction: column;
   margin: 0 10%;
   flex-wrap: wrap;
   text-align: center;
+}
+
+a {
+  align-self: start;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color:white;
+}
+
+.add-items{
+  display: block;
+  color: black;
 }
 
 .form-section {
