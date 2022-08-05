@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./components/Product.js";
 import ProductForm from "./components/ProductForm.js";
+import ProductList from "./components/ProductList";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,8 @@ root.render(
         <Routes>
             <Route path="new" element={<ProductForm />} />
             <Route path="/" element={<App />} />
+            <Route path="items" element={<ProductList />} />
+            <Route path="/:id" element={<Product />} />
         </Routes>
     </BrowserRouter>
 );

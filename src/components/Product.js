@@ -6,6 +6,8 @@ import './Product.css';
 const Product = ({
     id,
     name,
+    brand,
+    category,
     deleteProductsCallback
 }) => {
     const deleteFunc = () => {
@@ -14,8 +16,7 @@ const Product = ({
 
     return (
         <li className ='products-item'>
-            {name}
-            <button className="remove_product_button" onClick={deleteFunc}> 🗑️ </button>
+            {/*<button className="remove_product_button" onClick={deleteFunc}> 🗑️ </button>*/}
         </li>
     );
 };

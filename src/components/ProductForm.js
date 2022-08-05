@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import React from 'react';
 import {useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useOutlet} from "react-router-dom";
 import axios from "axios";
 
 
@@ -56,7 +56,7 @@ const ProductForm = (props) => {
         <div className="new-item-page">
         {/*<>*/}
         <form onSubmit={handleFormSubmission} >
-            <section>
+            <section className="form-block">
             <label htmlFor="Name">Name</label>
             <input id="Name" name="name" type="text" value={productData.name} onChange={handleFormInput}/>
 

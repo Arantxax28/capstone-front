@@ -49,7 +49,12 @@ a:hover {
   display: block;
   color: black;
 }
-
+.categories{
+  display: grid;
+  grid-template-columns: 12vw 12vw ;
+  grid-template-rows: 3vw 3vw ;
+  justify-items: start;
+}
 .form-section {
   display: inline-block;
   width: 80%;
