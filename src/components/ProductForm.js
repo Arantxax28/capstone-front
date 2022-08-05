@@ -54,6 +54,7 @@ const ProductForm = (props) => {
 
     return (
         <div className="new-item-page">
+            <h2>ADD NEW ITEM</h2>
         {/*<>*/}
         <form onSubmit={handleFormSubmission} >
             <section className="form-block">

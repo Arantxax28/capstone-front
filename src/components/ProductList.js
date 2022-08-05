@@ -52,12 +52,9 @@ const ProductList = () => {
     //     });
     // };
     return (
-        <div>
-            <Link to="/" className="home-link">
-                {/*<br />*/}
-                Return to Dashboard
-            </Link>
-        <ul className="list">
+        <div className="products-page">
+            <h2>MY ITEMS</h2>
+            <ul className="list">
             {products.map((item) => (
                 <li key={item.id} className="list-item">
                     <div className= "item-entry">
@@ -74,6 +71,10 @@ const ProductList = () => {
                 </li>
     ))}
             </ul>
+            <Link to="/" className="home-link">
+                {/*<br />*/}
+                Return to Dashboard
+            </Link>
         </div>
     );
 
