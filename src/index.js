@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Product from "./components/Product.js";
 import ProductForm from "./components/ProductForm.js";
 import ProductList from "./components/ProductList";
+import MakeupList from "./components/MakeupList";
+import SkincareList from "./components/SkincareList";
+import SubscriptionList from "./components/SubscriptionList";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +17,10 @@ root.render(
         <Routes>
             <Route path="new" element={<ProductForm />} />
             <Route path="/" element={<App />} />
-            <Route path="items" element={<ProductList />} />
+            <Route path="all" element={<ProductList />} />
+            <Route path="makeup" element={<MakeupList />} />
+            <Route path="skincare" element={<SkincareList />} />
+            <Route path="subscriptions" element={<SubscriptionList />} />
             <Route path="/:id" element={<Product />} />
         </Routes>
     </BrowserRouter>

@@ -12,10 +12,9 @@ const ProductForm = (props) => {
 
     const [productData, setProductData] = useState(defaultProduct);
     const [products, setProducts] = useState([]);
-    const url = 'http://localhost:8080/products';
 
-    const getProductsFromAPI = () => {
-        axios.get(url)
+    const getProductsFromAPI = (category_id) => {
+        axios.get(`http://localhost:8080/api/category/${category_id}/products`)
             .then((response) => {
                 setProducts(response.data);
                 console.log(response.data);
@@ -25,9 +24,9 @@ const ProductForm = (props) => {
             });
     };
 
-    const makeNewProduct = (data) => {
-        console.log(data);
-        axios.post(url, data)
+    const makeNewProduct = ({data, category_id}) => {
+        console.log("in post");
+        axios.post(`http://localhost:8080/api/category/${category_id}/products`, data)
             .then((response) => {
                 getProductsFromAPI();
             })
@@ -43,6 +42,7 @@ const ProductForm = (props) => {
 
         const newProductData = {...productData};
         newProductData[name] = value;
+        newProductData["category_id"] = props.category_id;
         setProductData(newProductData);
     };
 
@@ -64,10 +64,6 @@ const ProductForm = (props) => {
             <label htmlFor="Brand">Brand</label>
             <input
                 id="Brand" name="brand" type="text" value={productData.brand} onChange={handleFormInput}/>
-
-            <label htmlFor="Category">Category</label>
-            <input
-                id="Category" name="category" type="text" value={productData.category} onChange={handleFormInput}/>
 
             <label htmlFor="Price">Price</label>
             <input

@@ -31,7 +31,7 @@ main {
   flex-direction: column;
   margin: 0 8%;
   flex-wrap: wrap;
-  text-align: center;
+  text-align: start;
 }
 
 a {
@@ -51,14 +51,22 @@ a:hover {
 }
 .categories{
   display: grid;
-  grid-template-columns: 12vw 12vw ;
+  grid-template-columns: 16vw 16vw ;
   grid-template-rows: 3vw 3vw ;
   justify-items: start;
+  /*padding-left: 3vw;*/
+  /*background-color: white;*/
+  /*border-radius: 7px;*/
+  /*width: 32%;*/
+  /*grid-gap: 2px;*/
 }
 .form-section {
   display: inline-block;
   width: 80%;
   text-align: left;
+}
+.items{
+  font-size: 1.2vw;
 }
 
 .product-list{

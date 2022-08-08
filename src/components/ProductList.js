@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
-    const url = 'http://localhost:8080/products';
+    const url = 'http://localhost:8080/api/products';
 
     useEffect(() => {
         getProductsFromAPI();
@@ -25,7 +25,7 @@ const ProductList = () => {
     };
 
     const deleteProducts = (id) => {
-        axios.delete(`http://localhost:8080/products/${id}`)
+        axios.delete(`http://localhost:8080/api/products/${id}`)
             .then((response) => {
                 const updatedProducts = products.filter((product) => product.id !== id);
                 setProducts(updatedProducts);
@@ -54,14 +54,25 @@ const ProductList = () => {
     return (
         <div className="products-page">
             <h2>MY ITEMS</h2>
+            <section className="list-header">
+                <span>Product</span>
+                <span>Brand</span>
+                <span>Purchase Date</span>
+                <span>Expiration Date</span>
+                <span>Price</span>
+                <span>Remove</span>
+            </section>
             <ul className="list">
             {products.map((item) => (
                 <li key={item.id} className="list-item">
                     <div className= "item-entry">
                         <Link to={`${item.id}`} style={{ cursor: "pointer" }}>
                             <section className="item-info">
-                                <span>Product: {item.name}</span>
-                                <span>Brand: {item.brand}</span>
+                                <span>{item.name}</span>
+                                <span>{item.brand}</span>
+                                <span>{item.purchaseDate}</span>
+                                <span>{item.expirationDate}</span>
+                                <span>{item.price}</span>
                             </section>
                         </Link>
                         <button id="delete-item" onClick={() => deleteProducts(item.id)}>

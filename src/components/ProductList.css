@@ -3,20 +3,28 @@ ul {
     font-family: Avenir;
 }
 .item-info {
-    display: flex;
-    flex-direction: row;
-    gap: 3vw;
+    display: grid;
+    grid-template-columns: 20vw 20vw 13vw 13vw 5vw;
 }
 .item-entry {
     display: flex;
     flex-direction: row;
     gap: 3vw;
 }
+
+.list-header {
+    display: grid;
+    grid-template-columns: 20vw 20vw 13vw 13vw 7vw 5vw;
+    padding-left: 3vw;
+    font-weight: bold;
+    font-family: "Square Peg";
+    font-size: 2vw;
+}
 .products-page {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
-    padding-top: 5vw;
+    padding-top: 2vw;
     padding-left: 5vw;
 }
