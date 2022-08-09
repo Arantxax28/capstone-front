@@ -17,11 +17,11 @@ root.render(
         <Routes>
             <Route path="new" element={<ProductForm />} />
             <Route path="/" element={<App />} />
-            <Route path="all" element={<ProductList />} />
+            <Route path="products" element={<ProductList />} />
             <Route path="makeup" element={<MakeupList />} />
             <Route path="skincare" element={<SkincareList />} />
             <Route path="subscriptions" element={<SubscriptionList />} />
-            <Route path="/:id" element={<Product />} />
+            <Route path=":id" element={<Product />} />
         </Routes>
     </BrowserRouter>
 );

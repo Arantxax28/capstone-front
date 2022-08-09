@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 const MakeupList = () => {
     const [products, setProducts] = useState([]);
+    const[makeupTally,setMakeupTally] = useState(0)
     const url = 'http://localhost:8080/api/category/1/products';
 
     useEffect(() => {
@@ -34,6 +35,10 @@ const MakeupList = () => {
                 console.log(`Unable to delete product with id ${id}!`);
             });
     };
+
+    let makeupTotal = products.length;
+    console.log(makeupTotal)
+
 
     return (
         <div className="products-page">
