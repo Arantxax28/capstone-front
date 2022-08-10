@@ -3,7 +3,7 @@ import Product from './Product';
 import './ProductList.css';
 import {Link} from "react-router-dom";
 
-const ProductList = (props) => {
+const ProductListByCategory = (props) => {
     const getProductListJSX = (products) => {
         return products.map((product) => {
             return (
@@ -43,4 +43,4 @@ const ProductList = (props) => {
 
 
 };
-export default ProductList;
+export default ProductListByCategory;

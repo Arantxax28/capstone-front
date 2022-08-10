@@ -1,0 +1,39 @@
+a {
+    align-self: start;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color:white;
+}
+
+.categories{
+    display: grid;
+    grid-template-columns: 16vw 16vw ;
+    grid-template-rows: 3vw 3vw ;
+    justify-items: start;
+    padding-bottom: 2vw;
+}
+.category-header, .new-section{
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.items{
+    font-size: 1.2vw;
+}
+
+
+.right-side {
+    color: black;
+    font-size: 1.5vw;
+    font-weight: normal;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 2% 5%;
+}

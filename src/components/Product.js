@@ -7,7 +7,9 @@ const Product = ({
     id,
     name,
     brand,
-    category,
+    purchaseDate,
+    expirationDate,
+    price,
     deleteProductsCallback
 }) => {
     const deleteFunc = () => {
@@ -16,7 +18,12 @@ const Product = ({
 
     return (
         <li className ='products-item'>
-            {/*<button className="remove_product_button" onClick={deleteFunc}> 🗑️ </button>*/}
+            <span>{name}</span>
+            <span>{brand}</span>
+            <span>{purchaseDate}</span>
+            <span>{expirationDate}</span>
+            <span>{price}</span>
+            <button className="remove_product_button" onClick={deleteFunc}> 🗑️ </button>
         </li>
     );
 };

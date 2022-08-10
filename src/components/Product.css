@@ -1,3 +1,7 @@
+li.products-item{
+    display: grid;
+    grid-template-columns: 20vw 20vw 13vw 13vw 7vw 7vw;
+}
 button {
     background-color: transparent;
     border: None;

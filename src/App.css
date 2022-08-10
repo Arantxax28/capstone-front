@@ -4,22 +4,11 @@ html,body{
   background-color: #bcb8b1;
 }
 
-a {
-  align-self: start;
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  text-decoration: none;
-  color:white;
-}
-
 h1{
   font-family: "Square Peg";
   font-weight: lighter;
   font-size: 5vw;
-  padding-left: 3vw;
+  padding-left: 1vw;
 }
 
 h2{
@@ -27,32 +16,9 @@ h2{
   font-size: 1.5vw;
 }
 
-main{
-  display: flex;
-  flex-direction: row;
-}
-
 .add-items{
   display: block;
   color: black;
-}
-
-.container {
-  color: black;
-  font-size: 1.5vw;
-  font-weight: normal;
-  font-family: Arial;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-.categories{
-  display: grid;
-  grid-template-columns: 16vw 16vw ;
-  grid-template-rows: 3vw 3vw ;
-  justify-items: start;
 }
 
 .form-section {
@@ -61,28 +27,10 @@ main{
   text-align: left;
 }
 
-.items{
-  font-size: 1.2vw;
-}
-
 .left-side {
   display: block;
   justify-items: center;
   align-items: center;
 }
 
-.product-list{
-  display: inline-block;
-  text-align: left;
-  list-style: none;
-}
-
-.right-side {
-  padding-top: 1.5vw;
-  display: flex;
-  flex-direction: column;
-  margin: 0 8%;
-  flex-wrap: wrap;
-  text-align: start;
-}
 
