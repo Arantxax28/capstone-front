@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Square+Peg&display=swap");
 html,body{
   height: 100%;
-  background-color: #bcb8b1;
+  background-color: #637081;
 }
 
 h1{
@@ -9,6 +9,7 @@ h1{
   font-weight: lighter;
   font-size: 5vw;
   padding-left: 1vw;
+  color:#bfc3ba;
 }
 
 h2{

@@ -22,7 +22,7 @@ const ProductList = (props) => {
         });
     };
     return (
-    <div>
+    <div className="products-page">
         <h2>MY ITEMS</h2>
         <section className="list-header">
             <span>Product</span>

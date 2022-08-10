@@ -1,18 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import './Home.css';
 
 
 const Home = (props) => {
+
 const selectMakeup = () => {
-    props.getMakeupCallback();
+    props.getMakeupCallback('http://localhost:8080/products/makeup');
 };
 const selectSkincare = () => {
-    props.getSkincareCallback();
+    props.getSkincareCallback('http://localhost:8080/products/skincare');
 };
 const selectSubscriptions = () => {
-    props.getSubscriptionCallback();
+    props.getSubscriptionCallback('http://localhost:8080/products/subscriptions');
 };
+
+const getToday = () => {
+    props.getWeekdayCallback();
+};
+
+// const resetForm = () => {
+//         props.blankMessageCallback();
+//     };
 return (
 <section className="right-side">
     <h1>hello!</h1>
@@ -34,6 +43,7 @@ return (
             </section>
         </section>
         <Link to="new">
+            {/*<span onClick={resetForm} className="new-section">ADD NEW PRODUCT</span>*/}
             <span className="new-section">ADD NEW PRODUCT</span>
         </Link>
 

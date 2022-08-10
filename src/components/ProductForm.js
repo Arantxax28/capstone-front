@@ -23,17 +23,11 @@ const ProductForm = (props) => {
     };
 
     const handleFormSubmission = (event) => {
+        alert('You added: ' + productData.name);
         event.preventDefault();
         props.createNewProductCallback(productData);
         setProductData(defaultProduct);
     };
-
-    // const submitForm = async (productData) => {
-    //     console.log("Submission starting");
-    //     const result = await props.createNewProductCallback(productData);
-    //     console.log("Submitting complete", result.success);
-    //     setIsSubmitted(result.success);
-    // };
 
     return (
         <div className="new-item-page">
@@ -49,11 +43,19 @@ const ProductForm = (props) => {
                 id="Brand" name="brand" type="text" required value={productData.brand} onChange={handleFormInput}/>
 
             <label htmlFor="Category">Category</label>
-                <select required value={productData.category} onChange={handleFormInput}>
-                    <option name="Makeup">Makeup</option>
-                    <option name="Skincare">Skincare</option>
-                    <option name="Subscriptions">Subscriptions</option>
+                {/*<input placeholder="Select a category" type="text" list="categories" name="category" onSelect={handleFormInput}/>*/}
+                <select onChange={handleFormInput} value={productData.category}>
+                    {/*<option name="category0" value="1"  selected="true" disabled="disabled">Select A Category</option>*/}
+                    <option name="category1" value="Makeup">Makeup</option>
+                    <option name="category2" value="Skincare">Skincare</option>
+                    <option name="category3" value="Subscriptions">Subscriptions</option>
                 </select>
+
+                {/*<select >*/}
+                {/*    <option id= "Category" value={productData.category} name="Makeup" onSelect={handleFormInput}>Makeup</option>*/}
+                {/*    <option id = "Category" value={productData.category} name="Skincare" onSelect={handleFormInput}>Skincare</option>*/}
+                {/*    <option id = "Category" value={productData.category} name="Subscriptions" onSelect={handleFormInput}>Subscriptions</option>*/}
+                {/*</select>*/}
 
             <label htmlFor="Price">Price</label>
             <input
@@ -70,16 +72,16 @@ const ProductForm = (props) => {
             </section>
 
             <section className="form-buttons">
+            <input className="submit-button" type="submit" value="Add Item"/>
             <Link to="/" className="home-link">
                 Return to Dashboard
             </Link>
-            <input className="submit-button" type="submit" value="Add Item"/>
             </section>
-            {props.status === 0 && <p></p>}
-            {props.status === 1 && <p>Your item has been added!</p>}
-            {props.status === 2 && (
-                <p>"Product could not be added. Please fill out form."</p>
-            )}
+            {/*{props.status === 0 && <p></p>}*/}
+            {/*{props.status === 1 && <p>Your item has been added!</p>}*/}
+            {/*{props.status === 2 && (*/}
+            {/*    <p>"Product could not be added. Please fill out form."</p>*/}
+            {/*)}*/}
 
         </form>
 

@@ -21,16 +21,18 @@ form,section {
 p{
     font-family: "Square Peg";
     font-size: 3vh;
+    color: white;
+    animation: popup 5s ease-in-out;
 }
 
 .form-buttons{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .new-item-page {
-    background-color: #bcb8b1;
+    background-color: #637081;
     font-family: Avenir;
     display: flex;
     flex-direction: column;
@@ -40,20 +42,41 @@ p{
     padding-left: 5vw;
 }
 
-.submit-button, .home-link {
-    background-color: #4a4e69;
-    color: white;
+.home-link {
+    margin-left: 0.5em;
+    height: 45%;
+    padding: 0.1em .7em 0.1em 1em;
     font-size: 1vw;
-    border-radius: 7px;
-    padding: .3vw;
-    margin: .5vw;
+    font-weight: bold;
+    font-family: "Avenir";
+    text-transform: uppercase;
+    color: white;
+    border-radius: 2em;
+    border: 0.15em solid #16262e;
+    cursor: pointer;
+    background-color: #16262e;
+    justify-content: center;
 }
 
+.submit-button[type=submit]{
+    margin-left: 0.5em;
+    height: 2em;
+    padding: 0.1em .5em 0.1em 1em;
+    font-size: 1vw;
+    font-weight: bold;
+    font-family: "Avenir";
+    text-transform: uppercase;
+    color: white;
+    border-radius: 2em;
+    border: 0.15em solid #16262e;
+    cursor: pointer;
+    background-color: #16262e;
+    justify-content: center;
+}
+.submit-button[type="submit"]:hover,.home-link:hover {
+    color: black;
+    background-color: #c6d2ed;
+    border-color: #16262e;
+}
 
-/*a.home-link {*/
-/*    background-color: #283618;*/
-/*    color: white;*/
-/*    display: block;*/
-/*    padding: 0;*/
-/*}*/
 
