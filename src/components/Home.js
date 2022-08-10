@@ -5,14 +5,14 @@ import './Home.css';
 
 const Home = (props) => {
 
-const selectMakeup = () => {
-    props.getMakeupCallback('http://localhost:8080/products/makeup');
+const getMakeup = () => {
+    props.getMakeupCallback();
 };
-const selectSkincare = () => {
-    props.getSkincareCallback('http://localhost:8080/products/skincare');
+const getSkincare = () => {
+    props.getSkincareCallback();
 };
-const selectSubscriptions = () => {
-    props.getSubscriptionCallback('http://localhost:8080/products/subscriptions');
+const getSubscriptions = () => {
+    props.getSubscriptionCallback();
 };
 
 const getToday = () => {
@@ -29,16 +29,16 @@ return (
             <span className="category-header">MY ITEMS</span>
             <section className="categories">
                 <Link to="products">
-                    <span onClick={selectMakeup}>Makeup</span>
+                    <span className="category-name" onClick={getMakeup}>MAKEUP</span>
                 </Link>
                 <Link to="products">
-                    <span onClick={selectSkincare}>Skincare</span>
+                    <span className="category-name" onClick={getSkincare}>SKINCARE</span>
                 </Link>
                 <Link to="products">
-                    <span onClick={selectSubscriptions}>Subscriptions</span>
+                    <span className="category-name" onClick={getSubscriptions}>SUBSCRIPTIONS</span>
                 </Link>
                 <Link to="products">
-                    <span className="items">ALL</span>
+                    <span className="items category-name">ALL</span>
                 </Link>
             </section>
         </section>
