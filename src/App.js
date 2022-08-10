@@ -11,6 +11,7 @@ import ProductListByCategory from "./components/ProdcuttListByCategory";
 
 const App = () => {
     const [products, setProducts] = useState([]);
+    const [status, setStatus] = useState(0);
     const [url, setUrl] = useState('http://localhost:8080/products')
     // const url = 'http://localhost:8080/products';
 
@@ -23,6 +24,7 @@ const App = () => {
             .then((response) => {
                 setProducts(response.data);
                 console.log(response.data);
+                console.log(url);
             })
             .catch((error) => {
                 console.log("Couldn't get products!");
@@ -42,11 +44,15 @@ const App = () => {
 
     const createNewProduct = (data) => {
         console.log(data);
-        axios.post(url, data)
+        axios.post('http://localhost:8080/products', data)
             .then((response) => {
                 getProductsFromAPI();
             })
+            .then(() => {
+                setStatus(1);
+            })
             .catch((error) => {
+                setStatus(2);
                 console.log("Could not add product!");
             });
     };
@@ -68,13 +74,13 @@ const App = () => {
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<Home getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}/>
                 <Route path="products" element={
                     <ProductList products={products} deleteProductsCallback={deleteProducts}/>}
                 />
                 <Route path=":category" element={<ProductListByCategory products={products} deleteProductsCallback={deleteProducts}/>} />
                 <Route path="new" element={
-                    <ProductForm createNewProductCallback={createNewProduct}/>}
+                    <ProductForm status={status} createNewProductCallback={createNewProduct}/>}
                 />
             </Routes>
             </BrowserRouter>

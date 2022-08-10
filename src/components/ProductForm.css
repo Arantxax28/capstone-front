@@ -18,6 +18,17 @@ form,section {
     padding-top: 2vw;
 }
 
+p{
+    font-family: "Square Peg";
+    font-size: 3vh;
+}
+
+.form-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
 .new-item-page {
     background-color: #bcb8b1;
     font-family: Avenir;
@@ -35,7 +46,9 @@ form,section {
     font-size: 1vw;
     border-radius: 7px;
     padding: .3vw;
+    margin: .5vw;
 }
+
 
 /*a.home-link {*/
 /*    background-color: #283618;*/
