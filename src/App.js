@@ -7,6 +7,7 @@ import ProductList from './components/ProductList.js';
 import ProductForm from './components/ProductForm.js';
 import './App.css';
 import Home from "./components/Home";
+import CategoryPie from "./components/CategoryPie";
 
 
 const App = () => {
@@ -15,13 +16,16 @@ const App = () => {
     const [makeup, setMakeup] = useState([]);
     const [skincare, setSkincare] = useState([]);
     const [subscriptions, setSubscriptions] = useState(0);
-    // const [url, setUrl] = useState('http://localhost:8080/products')
     const url = 'http://localhost:8080/products';
 
     useEffect(() => {
         getProductsFromAPI();
+        getMakeupCount();
+        getSkincareCount();
+        getSubscriptionsCount()
     }, []);
 
+    console.log(makeup)
     const getProductsFromAPI = () => {
         axios.get(url)
             .then((response) => {
@@ -34,11 +38,43 @@ const App = () => {
             });
     };
 
+    const getMakeupCount = () => {
+        axios.get('http://localhost:8080/products/makeup')
+            .then((response) => {
+                setMakeup(response.data);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log("Couldn't get products!");
+            });
+    };
+
+    const getSkincareCount = () => {
+        axios.get('http://localhost:8080/products/skincare')
+            .then((response) => {
+                setSkincare(response.data);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log("Couldn't get products!");
+            });
+    };
+
+    const getSubscriptionsCount = () => {
+        axios.get('http://localhost:8080/products/subscriptions')
+            .then((response) => {
+                setSubscriptions(response.data);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log("Couldn't get products!");
+            });
+    };
+
     const getMakeup = () => {
         axios.get('http://localhost:8080/products/makeup')
             .then((response) => {
                 setProducts(response.data);
-                setMakeup(response.data);
                 console.log(response.data);
             })
             .catch((error) => {
@@ -50,7 +86,6 @@ const App = () => {
         axios.get('http://localhost:8080/products/skincare')
             .then((response) => {
                 setProducts(response.data);
-                setSkincare(response.data);
                 console.log(response.data);
             })
             .catch((error) => {
@@ -62,7 +97,6 @@ const App = () => {
         axios.get('http://localhost:8080/products/subscriptions')
             .then((response) => {
                 setProducts(response.data);
-                setSubscriptions(response.data);
                 console.log(response.data);
             })
             .catch((error) => {
@@ -92,10 +126,10 @@ const App = () => {
                 console.log(`Unable to delete product with id ${id}!`);
             });
     };
-
+    console.log(products)
     const createNewProduct = (data) => {
         console.log(data);
-        axios.post('http://localhost:8080/products', data)
+        axios.post(url, data)
             .then((response) => {
                 getProductsFromAPI();
             })
@@ -113,7 +147,9 @@ const App = () => {
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home getWeekdayCallback={getWeekday} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}/>
+                <Route path="/" element={<Home makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                    <CategoryPie/>
+                </Home>}/>
                 <Route path="products" element={
                     <ProductList products={products} deleteProductsCallback={deleteProducts}/>}
                 />

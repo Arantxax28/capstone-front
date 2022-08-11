@@ -4,6 +4,10 @@ a {
     color: black;
 }
 
+section{
+    padding:0px;
+}
+
 .category-name:hover {
     text-decoration: none;
     color:white;
@@ -15,6 +19,7 @@ a {
     grid-template-rows: 3vw 3vw ;
     justify-items: start;
     padding-bottom: 2vw;
+    padding-right:0px;
 }
 
 .category-header, .new-section{
@@ -23,6 +28,10 @@ a {
     color:#002438;
 }
 
+.home-page{
+    display: flex;
+    flex-direction: row;
+}
 
 .items{
     font-size: 1.2vw;
@@ -42,6 +51,7 @@ a {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: 30%;
     margin: 2% 5%;
+    padding:0;
 }

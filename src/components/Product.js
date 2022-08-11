@@ -23,7 +23,7 @@ const Product = ({
             <span>{purchaseDate}</span>
             <span>{expirationDate}</span>
             <span>{price}</span>
-            <button className="remove_product_button" onClick={deleteFunc}> 🗑️ </button>
+            <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
         </li>
     );
 };

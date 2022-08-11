@@ -43,13 +43,13 @@ const ProductForm = (props) => {
                 id="Brand" name="brand" type="text" required value={productData.brand} onChange={handleFormInput}/>
 
             <label htmlFor="Category">Category</label>
-                {/*<input placeholder="Select a category" type="text" list="categories" name="category" onSelect={handleFormInput}/>*/}
-                <select onChange={handleFormInput} value={productData.category}>
-                    {/*<option name="category0" value="1"  selected="true" disabled="disabled">Select A Category</option>*/}
+                <input placeholder="Select a category" type="text" list="categories" name="category" onSelect={handleFormInput}/>
+                <datalist id="categories">
+                    <option name="category0" value="1"  selected="true" disabled="disabled">Select A Category</option>
                     <option name="category1" value="Makeup">Makeup</option>
                     <option name="category2" value="Skincare">Skincare</option>
                     <option name="category3" value="Subscriptions">Subscriptions</option>
-                </select>
+                </datalist>
 
                 {/*<select >*/}
                 {/*    <option id= "Category" value={productData.category} name="Makeup" onSelect={handleFormInput}>Makeup</option>*/}
