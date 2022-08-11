@@ -4,6 +4,7 @@ import './Home.css';
 import CategoryPie from "./CategoryPie";
 
 
+
 const Home = (props) => {
 
 const getProductsFromApi = () => {
@@ -23,7 +24,7 @@ const getToday = () => {
     props.getWeekdayCallback();
 };
 
-console.log('home',props.makeup)
+console.log('home',props)
 // const resetForm = () => {
 //         props.blankMessageCallback();
 //     };

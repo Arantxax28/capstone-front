@@ -10,11 +10,19 @@ const Product = ({
     purchaseDate,
     expirationDate,
     price,
+    daysLeft,
     deleteProductsCallback
 }) => {
     const deleteFunc = () => {
         deleteProductsCallback(id);
     };
+
+    const expiringSoon = () =>{
+        if(daysLeft<=52){
+            return name;
+        }
+    }
+    console.log(expiringSoon())
 
     return (
         <li className ='products-item'>
@@ -23,6 +31,7 @@ const Product = ({
             <span>{purchaseDate}</span>
             <span>{expirationDate}</span>
             <span>{price}</span>
+            <span>{daysLeft}</span>
             <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
         </li>
     );

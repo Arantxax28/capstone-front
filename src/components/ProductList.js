@@ -16,6 +16,7 @@ const ProductList = (props) => {
                     price={product.price}
                     purchaseDate={product.purchaseDate}
                     expirationDate={product.expirationDate}
+                    daysLeft={product.daysLeft}
                     deleteProductsCallback={props.deleteProductsCallback}
                 />
             );
@@ -30,6 +31,7 @@ const ProductList = (props) => {
             <span>Purchase Date</span>
             <span>Expiration Date</span>
             <span>Price</span>
+            <span>Days Left</span>
             <span>Remove</span>
         </section>
 

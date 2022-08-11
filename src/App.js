@@ -13,6 +13,7 @@ import CategoryPie from "./components/CategoryPie";
 const App = () => {
     const [products, setProducts] = useState([]);
     const [status, setStatus] = useState([]);
+    const [expiring, setExpiring] = useState([]);
     const [makeup, setMakeup] = useState([]);
     const [skincare, setSkincare] = useState([]);
     const [subscriptions, setSubscriptions] = useState(0);
@@ -22,7 +23,8 @@ const App = () => {
         getProductsFromAPI();
         getMakeupCount();
         getSkincareCount();
-        getSubscriptionsCount()
+        getSubscriptionsCount();
+        expiringSoon()
     }, []);
 
     console.log(makeup)
@@ -142,13 +144,24 @@ const App = () => {
             });
     };
 
+    const expiringSoon = () =>{
+        axios.get(url)
+            .then((response) => {
+                const expiringProducts = products.filter((product) => product.daysLeft <= 30);
+                setExpiring(expiringProducts);
+            })
+            .catch((error)=> {
+                console.log('Unable to get expiring products');
+            })
+    };
+
 
     return (
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
-                    <CategoryPie/>
+                <Route path="/" element={<Home expired={expiring} makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                    <CategoryPie expired={expiring}/>
                 </Home>}/>
                 <Route path="products" element={
                     <ProductList products={products} deleteProductsCallback={deleteProducts}/>}

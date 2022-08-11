@@ -33,7 +33,7 @@ const CategoryPie = (props) => {
                     console.log("handling label?");
                     const RADIAN = Math.PI / 180;
                     // eslint-disable-next-line
-                    const radius = 15 + innerRadius + (outerRadius - innerRadius);
+                    const radius = 5 + innerRadius + (outerRadius - innerRadius);
                     // eslint-disable-next-line
                     const x = cx + radius * Math.cos(-midAngle * RADIAN);
                     // eslint-disable-next-line
@@ -47,7 +47,7 @@ const CategoryPie = (props) => {
                             textAnchor={x > cx ? "start" : "end"}
                             dominantBaseline="central"
                         >
-                            {myData[index].name} ({value})
+                            {myData[index].name}({value})
                         </text>
                     );
                 }}
