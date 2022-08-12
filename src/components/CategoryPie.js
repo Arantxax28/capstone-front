@@ -2,9 +2,14 @@ import React from "react";
 import Chart from "react-apexcharts";
 
 const CategoryPie = (props) => {
+    console.log("hi",props.makeup.length)
+    const makeupLength= props.makeup.length
+    const skincareLength= props.skincare.length
+    const subscriptionsLength= props.subscriptions.length
+
     const state = {
 
-        series: [props.makeup.length, props.skincare.length, props.subscriptions.length],
+        series: [makeupLength, skincareLength, subscriptionsLength],
         options: {
             chart: {
                 width: 380,

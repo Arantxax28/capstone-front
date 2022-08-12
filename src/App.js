@@ -14,7 +14,6 @@ import Countdown from "./components/Countdown";
 const App = () => {
     const [products, setProducts] = useState([]);
     const [status, setStatus] = useState([]);
-    const [expiring, setExpiring] = useState([]);
     const [makeup, setMakeup] = useState([]);
     const [skincare, setSkincare] = useState([]);
     const [subscriptions, setSubscriptions] = useState(0);
@@ -25,7 +24,6 @@ const App = () => {
         getMakeupCount();
         getSkincareCount();
         getSubscriptionsCount();
-        expiringSoon()
     }, []);
 
     console.log(makeup)
@@ -35,7 +33,7 @@ const App = () => {
                 setProducts(response.data);
                 console.log(response.data);
                 console.log(url);
-            }).then(expiringSoon)
+            })
             .catch((error) => {
                 console.log("Couldn't get products!");
             });
@@ -178,9 +176,11 @@ const App = () => {
             });
     };
 
-    const expiringSoon=()=> {
-        setExpiring(products.filter(product => product.daysLeft <= 30))
-    }
+    const expiring =products.filter(product => product.daysLeft <= 30)
+    const makeupItems =products.filter(product => product.category ==="Makeup")
+    const skincareItems =products.filter(product => product.category ==="Skincare")
+    const subscriptionItems =products.filter(product => product.category ==="Subscriptions")
+
 
 
     console.log(expiring)
@@ -189,12 +189,12 @@ const App = () => {
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home expiringSoonCallback={expiringSoon} expired={expiring} makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                <Route path="/" element={<Home expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
                     <CategoryPie />
                     <Countdown/>
                 </Home>}/>
                 <Route path="products" element={
-                    <ProductList products={products} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts}/>}
+                    <ProductList  products={products} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts}/>}
                 />
                 <Route path="new" element={
                     <ProductForm createNewProductCallback={createNewProduct} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}

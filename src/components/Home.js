@@ -21,15 +21,11 @@ const getSubscriptions = () => {
     props.getSubscriptionCallback();
 };
 
-const getExpiring = () => {
-    props.expiringSoonCallback();
-};
-
 const getToday = () => {
     props.getWeekdayCallback();
 };
 
-console.log('home',props)
+console.log('home',props.makeupItems)
 // const resetForm = () => {
 //         props.blankMessageCallback();
 //     };
@@ -61,12 +57,9 @@ return (
 
 </section>
 <section className="left-side">
-        <CategoryPie makeup={props.makeup} skincare={props.skincare} subscriptions={props.subscriptions}/>
-    {props.expired && props.expired.length > 0 ? (
-        <Countdown products={props.expired} />
-    ) : (
-        <span className="expiring-button" onClick={getExpiring}>Click to see products with upcoming expiration dates.</span>
-    )}
+        <CategoryPie makeup={props.makeupItems} skincare={props.skincareItems} subscriptions={props.subscriptionItems}/>
+        <Countdown products={props.expiring} />
+
 </section>
 </div>
 );
