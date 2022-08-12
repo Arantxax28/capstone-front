@@ -1,57 +1,56 @@
 import React from "react";
-import {PieChart, Pie, Tooltip, Label} from "recharts";
-
+import Chart from "react-apexcharts";
 
 const CategoryPie = (props) => {
-    // const result = props.products.filter(product => product.category==='Makeup');
-    console.log(props.makeup.length)
+    const state = {
 
-    const myData = [
-        { name: "Makeup", value: props.makeup.length },
-        { name: "Skincare", value: props.skincare.length },
-        { name: "Subscriptions", value: props.subscriptions.length },
-    ];
+        series: [props.makeup.length, props.skincare.length, props.subscriptions.length],
+        options: {
+            chart: {
+                width: 380,
+                type: 'pie',
+            },
+            colors: ['#93C3EE', '#E5C6A0', '#669DB5'],
+            fill: ['#93C3EE', '#E5C6A0', '#669DB5'],
+            stroke: {
+                width: 4
+            },
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#111']
+                },
+                background: {
+                    enabled: true,
+                    foreColor: '#fff',
+                    borderWidth: 0
+                }
+            },
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        },
 
-    return (
-        <PieChart width={400} height={400}>
-            <Pie
-                dataKey="value"
-                isAnimationActive={true}
-                data={myData}
-                outerRadius={100}
-                fill= "#6d6875"
-                // label={({
-                //             cx,
-                //             cy,
-                //             midAngle,
-                //             innerRadius,
-                //             outerRadius,
-                //             value,
-                //             index
-                //         }) => {
-                //     console.log("handling label?");
-                //     const RADIAN = Math.PI / 180;
-                //     const radius = 4 + innerRadius + (outerRadius - innerRadius);
-                //     const x = cx + radius * Math.cos(-midAngle * RADIAN);
-                //     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-                //     return (
-                //         <text
-                //             x={x}
-                //             y={y}
-                //             fill="#ffff"
-                //             textAnchor={x > cx ? "start" : "end"}
-                //             dominantBaseline="central"
-                //         >
-                //             {myData[index].name}{value}
-                //         </text>
-                //     );
-                // }}
-            />
+    };
 
-            <Tooltip />
-        </PieChart>
-    );
-};
+return (
+
+
+    <div id="chart">
+        <Chart options={state.options} series={state.series} type="pie" width={380} />
+    </div>
+
+
+);
+}
 
 export default CategoryPie;
