@@ -160,6 +160,24 @@ const App = () => {
     //     setExpiring(products.filter(product => product.daysLeft <= 30))
     // }
 
+    const addOneUse = (id) => {
+        axios
+            .patch(`http://localhost:8080/products/${id}`)
+            .then((response) => {
+                const newProductData = products.map((product) => {
+                    if (product.id === id) {
+                        product.useCount++;
+                    }
+                    return product;
+                });
+                setProducts(newProductData);
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("could not update like count");
+            });
+    };
+
     const expiringSoon=()=> {
         setExpiring(products.filter(product => product.daysLeft <= 30))
     }
@@ -176,7 +194,7 @@ const App = () => {
                     <Countdown/>
                 </Home>}/>
                 <Route path="products" element={
-                    <ProductList products={products} deleteProductsCallback={deleteProducts}/>}
+                    <ProductList products={products} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts}/>}
                 />
                 <Route path="new" element={
                     <ProductForm createNewProductCallback={createNewProduct} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}

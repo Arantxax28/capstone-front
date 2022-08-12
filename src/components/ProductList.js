@@ -17,6 +17,8 @@ const ProductList = (props) => {
                     purchaseDate={product.purchaseDate}
                     expirationDate={product.expirationDate}
                     daysLeft={product.daysLeft}
+                    useCount={product.useCount}
+                    addOneUseCallback={props.addOneUseCallback}
                     deleteProductsCallback={props.deleteProductsCallback}
                 />
             );
@@ -32,6 +34,7 @@ const ProductList = (props) => {
             <span>Expiration Date</span>
             <span>Price</span>
             <span>Days Left</span>
+            <span>Add Use</span>
             <span>Remove</span>
         </section>
 

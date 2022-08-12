@@ -11,10 +11,14 @@ const Product = ({
     expirationDate,
     price,
     daysLeft,
-    deleteProductsCallback
+    deleteProductsCallback,
+    addOneUseCallback
 }) => {
     const deleteFunc = () => {
         deleteProductsCallback(id);
+    };
+    const addOneFunc = () => {
+        addOneUseCallback(id);
     };
 
     return (
@@ -25,6 +29,7 @@ const Product = ({
             <span>{expirationDate}</span>
             <span>{price}</span>
             <span>{daysLeft}</span>
+            <button className="remove_product_button" onClick={addOneFunc}>1️⃣️️</button>
             <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
         </li>
     );
