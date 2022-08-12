@@ -57,7 +57,7 @@ return (
 
 </section>
 <section className="left-side">
-    <CategoryPie makeup={props.makeup} skincare={props.skincare} subscriptions={props.subscriptions}></CategoryPie>
+        <CategoryPie makeup={props.makeup} skincare={props.skincare} subscriptions={props.subscriptions}/>
     {props.expired && props.expired.length > 0 ? (
         <Countdown products={props.expired} />
     ) : (
