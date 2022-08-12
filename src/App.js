@@ -13,20 +13,12 @@ import Countdown from "./components/Countdown";
 
 const App = () => {
     const [products, setProducts] = useState([]);
-    const [status, setStatus] = useState([]);
-    const [makeup, setMakeup] = useState([]);
-    const [skincare, setSkincare] = useState([]);
-    const [subscriptions, setSubscriptions] = useState(0);
     const url = 'http://localhost:8080/products';
 
     useEffect(() => {
         getProductsFromAPI();
-        getMakeupCount();
-        getSkincareCount();
-        getSubscriptionsCount();
     }, []);
 
-    console.log(makeup)
     const getProductsFromAPI = () => {
         axios.get(url)
             .then((response) => {
@@ -39,75 +31,22 @@ const App = () => {
             });
     };
 
-    const getMakeupCount = () => {
-        axios.get('http://localhost:8080/products/makeup')
-            .then((response) => {
-                setMakeup(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log("Couldn't get products!");
-            });
-    };
-
-    const getSkincareCount = () => {
-        axios.get('http://localhost:8080/products/skincare')
-            .then((response) => {
-                setSkincare(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log("Couldn't get products!");
-            });
-    };
-
-    const getSubscriptionsCount = () => {
-        axios.get('http://localhost:8080/products/subscriptions')
-            .then((response) => {
-                setSubscriptions(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log("Couldn't get products!");
-            });
-    };
+    const expiring =products.filter(product => product.daysLeft <= 30)
+    const makeupItems =products.filter(product => product.category ==="Makeup")
+    const skincareItems =products.filter(product => product.category ==="Skincare")
+    const subscriptionItems =products.filter(product => product.category ==="Subscriptions")
 
     const getMakeup = () => {
-        axios.get('http://localhost:8080/products/makeup')
-            .then((response) => {
-                setProducts(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log("Couldn't get products!");
-            });
+                setProducts(makeupItems);
     };
 
-    const getSkincare = event => {
-        axios.get('http://localhost:8080/products/skincare')
-            .then((response) => {
-                setProducts(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log("Couldn't get products!");
-            });
+    const getSkincare = () => {
+        setProducts(skincareItems);
     };
 
-    const getSubscriptions = event => {
-        axios.get('http://localhost:8080/products/subscriptions')
-            .then((response) => {
-                setProducts(response.data);
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log("Couldn't get products!");
-            });
+    const getSubscriptions = () => {
+                setProducts(subscriptionItems);
     };
-
-    // const blankMessage = event => {
-    //     setStatus(0);
-    // };
 
     const getWeekday = () => {
         const dayList = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -134,29 +73,10 @@ const App = () => {
             .then((response) => {
                 getProductsFromAPI();
             })
-            // .then(() => {
-            //     setStatus(1);
-            // })
             .catch((error) => {
-                // setStatus(2);
                 console.log("Could not add product!");
             });
     };
-
-    // const expiringSoon = () =>{
-    //     axios.get(url)
-    //         .then((response) => {
-    //             const expiringProducts = products.filter((product) => product.daysLeft <= 30);
-    //             setExpiring(expiringProducts);
-    //         })
-    //         .catch((error)=> {
-    //             console.log('Unable to get expiring products');
-    //         })
-    // };
-
-    // const expiringSoon=()=> {
-    //     setExpiring(products.filter(product => product.daysLeft <= 30))
-    // }
 
     const addOneUse = (id) => {
         axios
@@ -172,29 +92,21 @@ const App = () => {
             })
             .catch((error) => {
                 console.log(error);
-                console.log("could not update like count");
+                console.log("could not update use count");
             });
     };
 
-    const expiring =products.filter(product => product.daysLeft <= 30)
-    const makeupItems =products.filter(product => product.category ==="Makeup")
-    const skincareItems =products.filter(product => product.category ==="Skincare")
-    const subscriptionItems =products.filter(product => product.category ==="Subscriptions")
-
-
-
-    console.log(expiring)
 
     return (
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                <Route path="/" element={<Home expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
                     <CategoryPie />
                     <Countdown/>
                 </Home>}/>
                 <Route path="products" element={
-                    <ProductList  products={products} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts}/>}
+                    <ProductList  products={products} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts} getProductsFromAPICallback={getProductsFromAPI}/>}
                 />
                 <Route path="new" element={
                     <ProductForm createNewProductCallback={createNewProduct} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}

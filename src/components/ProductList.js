@@ -4,6 +4,9 @@ import './ProductList.css';
 import {Link} from "react-router-dom";
 
 const ProductList = (props) => {
+    const getProductsFromApi = () => {
+        props.getProductsFromAPICallback();
+    };
     const getProductListJSX = (products) => {
         return products.map((product) => {
             return (
@@ -41,7 +44,7 @@ const ProductList = (props) => {
         </section>
 
         <ul className="item-info">{getProductListJSX(props.products)}</ul>
-        <Link to="/" className="home-link">
+        <Link to="/" className="home-link" onClick={getProductsFromApi}>
             {/*<br />*/}
             Return to Dashboard
         </Link>

@@ -8,15 +8,8 @@ import {Link} from "react-router-dom";
 
 const ProductForm = (props) => {
     const defaultProduct = {name:"", brand: "", category: "", price:"", purchaseDate:"", expirationDate:""};
-    // const [isSubmitted,setIsSubmitted] = useState(false);
 
     const [productData, setProductData] = useState(defaultProduct);
-
-    const getNewCounts = () => {
-        props.getMakeupCallback();
-        props.getSkincareCallback();
-        props.getSubscriptionCallback();
-    };
 
     const handleFormInput = (event) => {
         const inputElement = event.target;
@@ -33,13 +26,11 @@ const ProductForm = (props) => {
         event.preventDefault();
         props.createNewProductCallback(productData);
         setProductData(defaultProduct);
-        getNewCounts()
     };
 
     return (
         <div className="new-item-page">
             <h2>ADD NEW ITEM</h2>
-        {/*<>*/}
         <form onSubmit={handleFormSubmission} >
             <section className="form-block">
             <label htmlFor="Name">Name</label>
@@ -57,12 +48,6 @@ const ProductForm = (props) => {
                     <option name="category2" value="Skincare">Skincare</option>
                     <option name="category3" value="Subscriptions">Subscriptions</option>
                 </datalist>
-
-                {/*<select >*/}
-                {/*    <option id= "Category" value={productData.category} name="Makeup" onSelect={handleFormInput}>Makeup</option>*/}
-                {/*    <option id = "Category" value={productData.category} name="Skincare" onSelect={handleFormInput}>Skincare</option>*/}
-                {/*    <option id = "Category" value={productData.category} name="Subscriptions" onSelect={handleFormInput}>Subscriptions</option>*/}
-                {/*</select>*/}
 
             <label htmlFor="Price">Price</label>
             <input
@@ -84,15 +69,8 @@ const ProductForm = (props) => {
                 Return to Dashboard
             </Link>
             </section>
-            {/*{props.status === 0 && <p></p>}*/}
-            {/*{props.status === 1 && <p>Your item has been added!</p>}*/}
-            {/*{props.status === 2 && (*/}
-            {/*    <p>"Product could not be added. Please fill out form."</p>*/}
-            {/*)}*/}
-
         </form>
 
-        {/*</>*/}
         </div>
     );
 
