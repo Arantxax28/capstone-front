@@ -32,11 +32,8 @@ const CategoryPie = (props) => {
                         }) => {
                     console.log("handling label?");
                     const RADIAN = Math.PI / 180;
-                    // eslint-disable-next-line
-                    const radius = 5 + innerRadius + (outerRadius - innerRadius);
-                    // eslint-disable-next-line
+                    const radius = 4 + innerRadius + (outerRadius - innerRadius);\
                     const x = cx + radius * Math.cos(-midAngle * RADIAN);
-                    // eslint-disable-next-line
                     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
                     return (
@@ -47,13 +44,12 @@ const CategoryPie = (props) => {
                             textAnchor={x > cx ? "start" : "end"}
                             dominantBaseline="central"
                         >
-                            {myData[index].name}({value})
+                            {myData[index].name}{value}
                         </text>
                     );
                 }}
             />
 
-            {/* Display the tooltips */}
             <Tooltip />
         </PieChart>
     );

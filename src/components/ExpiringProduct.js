@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import './Product.css';
+import './ExpiringProduct.css';
 
-const Product = ({
+const ExpiringProduct = ({
     id,
     name,
     brand,
-    purchaseDate,
-    expirationDate,
-    price,
     daysLeft,
     deleteProductsCallback
 }) => {
@@ -18,15 +15,11 @@ const Product = ({
     };
 
     return (
-        <li className ='products-item'>
+        <li className ='expiring-item'>
             <span>{name}</span>
             <span>{brand}</span>
-            <span>{purchaseDate}</span>
-            <span>{expirationDate}</span>
-            <span>{price}</span>
             <span>{daysLeft}</span>
-            <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
         </li>
     );
 };
-export default Product;
+export default ExpiringProduct;

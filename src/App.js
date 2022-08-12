@@ -8,6 +8,7 @@ import ProductForm from './components/ProductForm.js';
 import './App.css';
 import Home from "./components/Home";
 import CategoryPie from "./components/CategoryPie";
+import Countdown from "./components/Countdown";
 
 
 const App = () => {
@@ -34,7 +35,7 @@ const App = () => {
                 setProducts(response.data);
                 console.log(response.data);
                 console.log(url);
-            })
+            }).then(expiringSoon)
             .catch((error) => {
                 console.log("Couldn't get products!");
             });
@@ -144,30 +145,41 @@ const App = () => {
             });
     };
 
-    const expiringSoon = () =>{
-        axios.get(url)
-            .then((response) => {
-                const expiringProducts = products.filter((product) => product.daysLeft <= 30);
-                setExpiring(expiringProducts);
-            })
-            .catch((error)=> {
-                console.log('Unable to get expiring products');
-            })
-    };
+    // const expiringSoon = () =>{
+    //     axios.get(url)
+    //         .then((response) => {
+    //             const expiringProducts = products.filter((product) => product.daysLeft <= 30);
+    //             setExpiring(expiringProducts);
+    //         })
+    //         .catch((error)=> {
+    //             console.log('Unable to get expiring products');
+    //         })
+    // };
 
+    // const expiringSoon=()=> {
+    //     setExpiring(products.filter(product => product.daysLeft <= 30))
+    // }
+
+    const expiringSoon=()=> {
+        setExpiring(products.filter(product => product.daysLeft <= 30))
+    }
+
+
+    console.log(expiring)
 
     return (
         <div className="container">
             <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home expired={expiring} makeup={makeup} skincare={skincare} subscriptions={subscriptions} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
-                    <CategoryPie expired={expiring}/>
+                    <CategoryPie />
+                    <Countdown/>
                 </Home>}/>
                 <Route path="products" element={
                     <ProductList products={products} deleteProductsCallback={deleteProducts}/>}
                 />
                 <Route path="new" element={
-                    <ProductForm createNewProductCallback={createNewProduct}/>}
+                    <ProductForm createNewProductCallback={createNewProduct} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}
                 />
             </Routes>
             </BrowserRouter>

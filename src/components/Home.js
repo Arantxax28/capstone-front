@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import './Home.css';
 import CategoryPie from "./CategoryPie";
+import Countdown from "./Countdown";
 
 
 
@@ -57,6 +58,11 @@ return (
 </section>
 <section className="left-side">
     <CategoryPie makeup={props.makeup} skincare={props.skincare} subscriptions={props.subscriptions}></CategoryPie>
+    {props.expired && props.expired.length > 0 ? (
+        <Countdown products={props.expired} />
+    ) : (
+        <h2>No products found. Please refine your search criteria.</h2>
+    )}
 </section>
 </div>
 );

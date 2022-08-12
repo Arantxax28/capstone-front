@@ -12,6 +12,12 @@ const ProductForm = (props) => {
 
     const [productData, setProductData] = useState(defaultProduct);
 
+    const getNewCounts = () => {
+        props.getMakeupCallback();
+        props.getSkincareCallback();
+        props.getSubscriptionCallback();
+    };
+
     const handleFormInput = (event) => {
         const inputElement = event.target;
         const name = inputElement.name;
@@ -27,6 +33,7 @@ const ProductForm = (props) => {
         event.preventDefault();
         props.createNewProductCallback(productData);
         setProductData(defaultProduct);
+        getNewCounts()
     };
 
     return (
@@ -45,7 +52,7 @@ const ProductForm = (props) => {
             <label htmlFor="Category">Category</label>
                 <input placeholder="Select a category" type="text" list="categories" name="category" onSelect={handleFormInput}/>
                 <datalist id="categories">
-                    <option name="category0" value="1"  selected="true" disabled="disabled">Select A Category</option>
+                    <option name="category0" value="1"  disabled="disabled">Select A Category</option>
                     <option name="category1" value="Makeup">Makeup</option>
                     <option name="category2" value="Skincare">Skincare</option>
                     <option name="category3" value="Subscriptions">Subscriptions</option>
@@ -73,7 +80,7 @@ const ProductForm = (props) => {
 
             <section className="form-buttons">
             <input className="submit-button" type="submit" value="Add Item"/>
-            <Link to="/" className="home-link">
+            <Link to="/" className="home-link" >
                 Return to Dashboard
             </Link>
             </section>

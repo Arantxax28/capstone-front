@@ -1,0 +1,39 @@
+ul {
+    list-style: none;
+    font-family: Avenir;
+}
+.expiring-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5vh;
+    padding-left: 0;
+    color:white;
+}
+.item-entry {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+.expiring-header {
+    display: grid;
+    grid-template-columns: 28vw 20vw 7vw;
+    padding-top: 1vw;
+    font-weight: bold;
+    font-family: "Square Peg";
+    font-size: 1.5vw;
+}
+
+.expiring-title {
+    font-size: 1.2vw;
+    font-weight: bold;
+    color:#002438;
+}
+
+.expiring-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    column-gap: 1vw;
+}
