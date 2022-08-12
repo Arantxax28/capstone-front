@@ -33,10 +33,12 @@ const App = () => {
     };
 
     //filters products so only the products in given categories are returned
-    const expiring =products.filter(product => product.daysLeft <= 30)
+    const expiringUnsorted =products.filter(product => product.daysLeft <= 30)
     const makeupItems =products.filter(product => product.category ==="Makeup")
     const skincareItems =products.filter(product => product.category ==="Skincare")
     const subscriptionItems =products.filter(product => product.category ==="Subscriptions")
+
+    const expiring = expiringUnsorted.sort((a, b) => (a.daysLeft > b.daysLeft) ? 1 : -1)
 
     //gets total usage for each category to be used in usage pie chart
     const sumCount = products.reduce((currentSum, product) => {
