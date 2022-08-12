@@ -21,6 +21,10 @@ const getSubscriptions = () => {
     props.getSubscriptionCallback();
 };
 
+const getExpiring = () => {
+    props.expiringSoonCallback();
+};
+
 const getToday = () => {
     props.getWeekdayCallback();
 };
@@ -61,7 +65,7 @@ return (
     {props.expired && props.expired.length > 0 ? (
         <Countdown products={props.expired} />
     ) : (
-        <h2>No products found. Please refine your search criteria.</h2>
+        <span className="expiring-button" onClick={getExpiring}>Click to see products with upcoming expiration dates.</span>
     )}
 </section>
 </div>

@@ -56,3 +56,19 @@ section{
     margin: 2% 5%;
     padding:0;
 }
+
+.expiring-button{
+    margin-left: 0.5em;
+    height: 45%;
+    padding: 0.1em .7em 0.1em 1em;
+    font-size: 1vw;
+    font-weight: bold;
+    font-family: "Avenir";
+    text-transform: uppercase;
+    color: white;
+    border-radius: 2em;
+    border: 0.15em solid #16262e;
+    cursor: pointer;
+    background-color: #16262e;
+    justify-content: center;
+}

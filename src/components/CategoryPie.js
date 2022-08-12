@@ -10,8 +10,17 @@ const CategoryPie = (props) => {
                 width: 380,
                 type: 'pie',
             },
-            colors: ['#93C3EE', '#E5C6A0', '#669DB5'],
-            fill: ['#93C3EE', '#E5C6A0', '#669DB5'],
+            labels: ['Makeup', 'Skincare', 'Subscriptions'],
+            title: {
+                text: 'Monthly Purchases',
+                align: 'left',
+                margin: 10,
+                offsetX: 50,
+                offsetY: 0,
+                floating: false
+            },
+            colors: ['#93C3EE', '#E5C6A0', '#a3b18a'],
+            fill: ['#93C3EE', '#E5C6A0', '#a3b18a'],
             stroke: {
                 width: 4
             },
@@ -20,6 +29,7 @@ const CategoryPie = (props) => {
                 style: {
                     colors: ['#111']
                 },
+                distributed:false,
                 background: {
                     enabled: true,
                     foreColor: '#fff',
@@ -33,7 +43,7 @@ const CategoryPie = (props) => {
                         width: 200
                     },
                     legend: {
-                        position: 'bottom'
+                        position: 'center'
                     }
                 }
             }]
