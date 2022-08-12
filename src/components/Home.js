@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import './Home.css';
 import CategoryPie from "./CategoryPie";
 import Countdown from "./Countdown";
+import UsePie from "./UsePie";
 
 
 
@@ -57,8 +58,11 @@ return (
 
 </section>
 <section className="left-side">
+    <section className="chart-section">
         <CategoryPie makeup={props.makeupItems} skincare={props.skincareItems} subscriptions={props.subscriptionItems}/>
-        <Countdown products={props.expiring} />
+        <UsePie all={props.sumCount} makeup={props.makeupCount} skincare={props.skincareCount} subscriptions={props.subscriptionsCount} />
+    </section>
+    <Countdown products={props.expiring} />
 
 </section>
 </div>

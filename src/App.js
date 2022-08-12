@@ -9,6 +9,7 @@ import './App.css';
 import Home from "./components/Home";
 import CategoryPie from "./components/CategoryPie";
 import Countdown from "./components/Countdown";
+import UsePie from "./components/UsePie";
 
 
 const App = () => {
@@ -31,11 +32,32 @@ const App = () => {
             });
     };
 
+    //filters products so only the products in given categories are returned
     const expiring =products.filter(product => product.daysLeft <= 30)
     const makeupItems =products.filter(product => product.category ==="Makeup")
     const skincareItems =products.filter(product => product.category ==="Skincare")
     const subscriptionItems =products.filter(product => product.category ==="Subscriptions")
 
+    //gets total usage for each category to be used in usage pie chart
+    const sumCount = products.reduce((currentSum, product) => {
+        return currentSum + product.useCount;
+    }, 0);
+    const sumMakeupCount = makeupItems.reduce((currentSum, product) => {
+        return currentSum + product.useCount;
+    }, 0);
+    const sumSkincareCount = skincareItems.reduce((currentSum, product) => {
+        return currentSum + product.useCount;
+    }, 0);
+    const sumSubscriptionsCount = subscriptionItems.reduce((currentSum, product) => {
+        return currentSum + product.useCount;
+    }, 0);
+
+    console.log("All",sumCount);
+    console.log("makeup",sumMakeupCount);
+    console.log("skin",sumSkincareCount);
+    console.log("sub",sumSubscriptionsCount);
+
+    //sets product state to the products in each category, used to display product list
     const getMakeup = () => {
                 setProducts(makeupItems);
     };
@@ -101,7 +123,8 @@ const App = () => {
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                <Route path="/" element={<Home sumCount={sumCount} makeupCount={sumMakeupCount} skincareCount={sumSkincareCount} subscriptionsCount={sumSubscriptionsCount} expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                    <UsePie />
                     <CategoryPie />
                     <Countdown/>
                 </Home>}/>

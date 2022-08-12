@@ -1,15 +1,10 @@
 import React from "react";
 import Chart from "react-apexcharts";
 
-const CategoryPie = (props) => {
-    console.log("hi",props.makeup.length)
-    const makeupLength= props.makeup.length
-    const skincareLength= props.skincare.length
-    const subscriptionsLength= props.subscriptions.length
-
+const UsePie = (props) => {
     const state = {
 
-        series: [makeupLength, skincareLength, subscriptionsLength],
+        series: [props.makeup, props.skincare, props.subscriptions],
         options: {
             chart: {
                 width: 380,
@@ -17,10 +12,10 @@ const CategoryPie = (props) => {
             },
             labels: ['Makeup', 'Skincare', 'Subscriptions'],
             title: {
-                text: 'Purchases by Category',
+                text: 'Usage by Category',
                 align: 'left',
                 margin: 10,
-                offsetX: 40,
+                offsetX: 50,
                 offsetY: 0,
                 floating: false
             },
@@ -57,15 +52,15 @@ const CategoryPie = (props) => {
 
     };
 
-return (
+    return (
 
 
-    <div id="chart">
-        <Chart options={state.options} series={state.series} type="pie" width={380} />
-    </div>
+        <div id="chart">
+            <Chart options={state.options} series={state.series} type="pie" width={380} />
+        </div>
 
 
-);
+    );
 }
 
-export default CategoryPie;
+export default UsePie;
