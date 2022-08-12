@@ -11,6 +11,7 @@ const Product = ({
     expirationDate,
     price,
     daysLeft,
+    useCount,
     costPerUse,
     deleteProductsCallback,
     addOneUseCallback
@@ -31,7 +32,8 @@ const Product = ({
             <span>{price}</span>
             <span>{daysLeft}</span>
             <span>{costPerUse}</span>
-            <button className="remove_product_button" onClick={addOneFunc}>1️⃣️️</button>
+            <span>{useCount}</span>
+            <button className="remove_product_button" onClick={addOneFunc}>➕️</button>
             <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
         </li>
     );
