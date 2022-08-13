@@ -23,6 +23,9 @@ const Product = ({
         addOneUseCallback(id);
     };
 
+    const roundedCost = Math.round(costPerUse*100)/100
+
+
     return (
         <li className ='products-item'>
             <span>{name}</span>
@@ -31,7 +34,7 @@ const Product = ({
             <span>{expirationDate}</span>
             <span>{price}</span>
             <span>{daysLeft}</span>
-            <span>{costPerUse}</span>
+            <span>{roundedCost}</span>
             <span>{useCount}</span>
             <button className="remove_product_button" onClick={addOneFunc}>➕️</button>
             <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
