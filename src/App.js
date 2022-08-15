@@ -104,7 +104,7 @@ const App = () => {
 
     const addOneUse = (id) => {
         axios
-            .patch(`http://localhost:8080/products/${id}`)
+            .patch(`http://localhost:8080/products/increment/${id}`)
             .then((response) => {
                 const newProductData = products.map((product) => {
                     if (product.id === id) {
