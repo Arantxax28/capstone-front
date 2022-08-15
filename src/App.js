@@ -14,7 +14,7 @@ import UsePie from "./components/UsePie";
 
 const App = () => {
     const [products, setProducts] = useState([]);
-    const url = 'http://localhost:8080/products';
+    const url = 'https://dm-capstone.herokuapp.com/products';
 
     useEffect(() => {
         getProductsFromAPI();
@@ -81,7 +81,7 @@ const App = () => {
 
 
     const deleteProducts = (id) => {
-        axios.delete(`http://localhost:8080/products/${id}`)
+        axios.delete(`https://dm-capstone.herokuapp.com/products/${id}`)
             .then((response) => {
                 const updatedProducts = products.filter((product) => product.id !== id);
                 setProducts(updatedProducts);
@@ -104,7 +104,7 @@ const App = () => {
 
     const addOneUse = (id) => {
         axios
-            .patch(`http://localhost:8080/products/increment/${id}`)
+            .patch(`https://dm-capstone.herokuapp.com/products/increment/${id}`)
             .then((response) => {
                 const newProductData = products.map((product) => {
                     if (product.id === id) {
@@ -123,7 +123,7 @@ const App = () => {
 
     const removeOneUse = (id) => {
         axios
-            .patch(`http://localhost:8080/products/decrement/${id}`)
+            .patch(`https://dm-capstone.herokuapp.com/products/decrement/${id}`)
             .then((response) => {
                 const updatedProductData = products.map((product) => {
                     if (product.id === id) {
