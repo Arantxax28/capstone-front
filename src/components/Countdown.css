@@ -17,8 +17,9 @@ ul {
 
 .expiring-header {
     display: grid;
-    grid-template-columns: 28vw 20vw 7vw;
+    grid-template-columns: 25vw 19vw 7vw;
     padding-top: 1vw;
+    padding-left: 1vw;
     font-weight: bold;
     font-family: "Square Peg";
     font-size: 1.5vw;

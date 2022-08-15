@@ -1,6 +1,6 @@
 li.expiring-item{
     display: grid;
-    grid-template-columns: 28vw 20vw 7vw;
+    grid-template-columns: 25vw 20vw 7vw;
     background-color: #546a7b;
     border-radius: 3vh;
     padding-left: 2vh;

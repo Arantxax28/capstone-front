@@ -40,9 +40,9 @@ const Product = ({
             <span>{daysLeft}</span>
             <span>{roundedCost}</span>
             <span>{useCount}</span>
-            <button className="remove_product_button" onClick={addOneFunc}>➕️</button>
-            <button className="remove_product_button" onClick={removeOneFunc}>➖️</button>
-            <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
+            <button className="add-button" onClick={addOneFunc}>➕️</button>
+            <button className="remove-button" onClick={removeOneFunc}>➖️</button>
+            <button className="delete-button" onClick={deleteFunc}> ✂️</button>
         </li>
     );
 };
