@@ -23,6 +23,7 @@ const ProductList = (props) => {
                     costPerUse={product.costPerUse}
                     useCount={product.useCount}
                     addOneUseCallback={props.addOneUseCallback}
+                    removeOneUseCallback={props.removeOneUseCallback}
                     deleteProductsCallback={props.deleteProductsCallback}
                 />
             );
@@ -39,7 +40,7 @@ const ProductList = (props) => {
             <span>Price</span>
             <span>Days Left</span>
             <span>Cost Per Use</span>
-            <span>Add Use</span>
+            <span>Use Count</span>
             <span>Remove</span>
         </section>
 

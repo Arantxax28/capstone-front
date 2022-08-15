@@ -121,6 +121,24 @@ const App = () => {
             });
     };
 
+    const removeOneUse = (id) => {
+        axios
+            .patch(`http://localhost:8080/products/decrement/${id}`)
+            .then((response) => {
+                const updatedProductData = products.map((product) => {
+                    if (product.id === id) {
+                        product.useCount--;
+                        product.costPerUse = product.price/product.useCount;
+                    }
+                    return product;
+                });
+                setProducts(updatedProductData);
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("could not update use count");
+            });
+    };
 
     return (
         <div className="container">
@@ -132,7 +150,7 @@ const App = () => {
                     <Countdown/>
                 </Home>}/>
                 <Route path="products" element={
-                    <ProductList  products={products} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts} getProductsFromAPICallback={getProductsFromAPI}/>}
+                    <ProductList  products={products} removeOneUseCallback={removeOneUse} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts} getProductsFromAPICallback={getProductsFromAPI}/>}
                 />
                 <Route path="new" element={
                     <ProductForm createNewProductCallback={createNewProduct} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}/>}

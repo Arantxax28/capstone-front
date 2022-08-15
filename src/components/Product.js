@@ -14,13 +14,17 @@ const Product = ({
     useCount,
     costPerUse,
     deleteProductsCallback,
-    addOneUseCallback
+    addOneUseCallback,
+    removeOneUseCallback
 }) => {
     const deleteFunc = () => {
         deleteProductsCallback(id);
     };
     const addOneFunc = () => {
         addOneUseCallback(id);
+    };
+    const removeOneFunc = () => {
+        removeOneUseCallback(id);
     };
 
     const roundedCost = Math.round(costPerUse*100)/100
@@ -37,6 +41,7 @@ const Product = ({
             <span>{roundedCost}</span>
             <span>{useCount}</span>
             <button className="remove_product_button" onClick={addOneFunc}>➕️</button>
+            <button className="remove_product_button" onClick={removeOneFunc}>➖️</button>
             <button className="remove_product_button" onClick={deleteFunc}> ✂️</button>
         </li>
     );
