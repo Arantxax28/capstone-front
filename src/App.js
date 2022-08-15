@@ -109,6 +109,7 @@ const App = () => {
                 const newProductData = products.map((product) => {
                     if (product.id === id) {
                         product.useCount++;
+                        product.costPerUse = product.price/product.useCount;
                     }
                     return product;
                 });
