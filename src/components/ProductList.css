@@ -1,6 +1,6 @@
 ul {
     list-style: none;
-    font-family: Avenir;
+    /*font-family: Avenir;*/
 }
 .item-info {
     display: flex;

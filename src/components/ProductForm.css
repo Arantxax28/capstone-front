@@ -33,7 +33,7 @@ p{
 
 .new-item-page {
     /*background-color: #637081;*/
-    font-family: Avenir;
+    /*font-family: Avenir;*/
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -48,7 +48,7 @@ p{
     padding: 0.1em .7em 0.1em 1em;
     font-size: 1vw;
     font-weight: bold;
-    font-family: "Avenir";
+    /*font-family: "Avenir";*/
     text-transform: uppercase;
     color: white;
     border-radius: 2em;
@@ -60,23 +60,22 @@ p{
 
 .submit-button[type=submit]{
     margin-left: 0.5em;
-    height: 2em;
-    padding: 0.1em .5em 0.1em 1em;
+    height: 1.7em;
+    padding: 0em .5em 0.1em .5em;
     font-size: 1vw;
+    font-family: garamond;
     font-weight: bold;
-    font-family: "Avenir";
     text-transform: uppercase;
     color: white;
     border-radius: 2em;
     border: 0.15em solid #16262e;
     cursor: pointer;
     background-color: #16262e;
-    justify-content: center;
 }
 .submit-button[type="submit"]:hover,.home-link:hover {
     color: black;
-    background-color: #c6d2ed;
-    border-color: #16262e;
+    background-color: transparent;
+    border-color: black;
 }
 
 
