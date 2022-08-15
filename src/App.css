@@ -2,8 +2,8 @@
 html,body{
   height: 100%;
   /*background-color: #637081;*/
-  background-color: white;
-  font-family: garamond;
+  background-color: #EBECF0;
+  font-family: 'DM Sans', sans-serif;
 }
 
 h1{
@@ -13,7 +13,8 @@ h1{
   padding-left: 1vw;
   /*color:#bfc3ba;*/
   color:white;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000000;
+  /*background-color: rgba(0, 0, 0, 0.9);*/
 }
 
 h2{

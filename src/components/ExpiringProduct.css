@@ -1,10 +1,12 @@
 li.expiring-item{
     display: grid;
     grid-template-columns: 25vw 20vw 7vw;
-    background-color: #546a7b;
-    border-radius: 3vh;
+    border-bottom: #546a7b;
+    border-bottom-style: solid;
+    /*border-radius: 3vh;*/
     padding-left: 2vh;
     padding-right: -100vh;
+    color: black;
 }
 button {
     background-color: transparent;

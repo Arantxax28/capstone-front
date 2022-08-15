@@ -9,8 +9,8 @@ section{
 }
 
 .category-name:hover {
-    text-decoration: none;
-    color:white;
+    font-weight: bold;
+    /*color:white;*/
 }
 
 
@@ -44,6 +44,7 @@ section{
 
 .left-side {
     padding: 0;
+    row-gap: 5vw;
 }
 
 .right-side {
