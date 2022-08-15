@@ -32,7 +32,7 @@ p{
 }
 
 .new-item-page {
-    background-color: #637081;
+    /*background-color: #637081;*/
     font-family: Avenir;
     display: flex;
     flex-direction: column;
