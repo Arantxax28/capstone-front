@@ -85,3 +85,7 @@ section{
     background-color: #c6d2ed;
     border-color: #16262e;
 }
+
+h1{
+    padding: 0;
+}

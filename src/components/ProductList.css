@@ -26,7 +26,12 @@ ul {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: 95%;
     padding-top: 2vw;
-    padding-left: 5vw;
+    padding-left: 2vw;
+}
+
+.return{
+    padding-top: 1vw;
+    padding-left: 2vw
 }

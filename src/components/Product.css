@@ -1,6 +1,6 @@
 li.products-item{
     display: grid;
-    grid-template-columns: 18vw 16vw 11vw 11vw 6vw 8vw 8vw 2vw 1vw 1vw 9vw;
+    grid-template-columns: 18vw 16vw 11vw 11vw 6vw 8vw 8vw 2vw 1vw 1vw 10vw;
     background-color: #546a7b;
     border-radius: 3vh;
     padding-left: 2vh;

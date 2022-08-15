@@ -45,10 +45,12 @@ const ProductList = (props) => {
         </section>
 
         <ul className="item-info">{getProductListJSX(props.products)}</ul>
+        <section className="return">
         <Link to="/" className="home-link" onClick={getProductsFromApi}>
             {/*<br />*/}
             Return to Dashboard
         </Link>
+        </section>
     </div>
     );
 

@@ -12,10 +12,10 @@ const UsePie = (props) => {
             },
             labels: ['Makeup', 'Skincare', 'Subscriptions'],
             title: {
-                text: 'Usage by Category',
+                text: 'Used',
                 align: 'left',
                 margin: 10,
-                offsetX: 50,
+                offsetX: 100,
                 offsetY: 0,
                 floating: false
             },

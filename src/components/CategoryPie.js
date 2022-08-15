@@ -17,10 +17,10 @@ const CategoryPie = (props) => {
             },
             labels: ['Makeup', 'Skincare', 'Subscriptions'],
             title: {
-                text: 'Purchases by Category',
+                text: 'Purchased',
                 align: 'left',
                 margin: 10,
-                offsetX: 40,
+                offsetX: 85,
                 offsetY: 0,
                 floating: false
             },
