@@ -145,9 +145,6 @@ const App = () => {
             <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home sumCount={sumCount} makeupCount={sumMakeupCount} skincareCount={sumSkincareCount} subscriptionsCount={sumSubscriptionsCount} expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
-                    <UsePie />
-                    <CategoryPie />
-                    <Countdown/>
                 </Home>}/>
                 <Route path="products" element={
                     <ProductList  products={products} removeOneUseCallback={removeOneUse} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts} getProductsFromAPICallback={getProductsFromAPI}/>}
