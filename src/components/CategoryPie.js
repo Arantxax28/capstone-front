@@ -24,8 +24,8 @@ const CategoryPie = (props) => {
                 offsetY: 0,
                 floating: false
             },
-            colors: ['#93C3EE', '#E5C6A0', '#a3b18a'],
-            fill: ['#93C3EE', '#E5C6A0', '#a3b18a'],
+            colors: ['#26547c', '#ffd166', '#ef476f'],
+            fill: ['#26547c', '#ffd166', '#ef476f'],
             stroke: {
                 width: 4
             },
