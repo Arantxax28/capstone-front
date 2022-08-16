@@ -18,7 +18,7 @@ ul {
 .list-header {
     display: grid;
     grid-template-columns: 22vw 16vw 11vw 11vw 5vw 8vw 9vw 7vw 2vw;
-    padding-left: 1vw;
+    padding-left: 1.5vw;
     font-weight: bold;
     font-family: "Helvetica Neue";
     font-size: 1vw;
@@ -34,5 +34,5 @@ ul {
 
 .return{
     padding-top: 1vw;
-    padding-left: 2vw
+    padding-left: .9vw;
 }

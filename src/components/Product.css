@@ -6,6 +6,7 @@ li.products-item{
     /*border-bottom-style: solid;*/
     /*border-color:  black;*/
     padding-right: -100vh;
+    padding-left: .5vw;
     color: black;
 }
 button {
