@@ -7,9 +7,7 @@ import ProductList from './components/ProductList.js';
 import ProductForm from './components/ProductForm.js';
 import './App.css';
 import Home from "./components/Home";
-import CategoryPie from "./components/CategoryPie";
-import Countdown from "./components/Countdown";
-import UsePie from "./components/UsePie";
+
 
 
 const App = () => {
@@ -71,13 +69,6 @@ const App = () => {
     const getSubscriptions = () => {
                 setProducts(subscriptionItems);
     };
-
-    const getWeekday = () => {
-        const dayList = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-        let hoy= new Date();
-        console.log('hoy', hoy)
-        return dayList[hoy.getDay()];
-    }
 
 
     const deleteProducts = (id) => {
@@ -144,7 +135,7 @@ const App = () => {
         <div className="container">
             <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home sumCount={sumCount} makeupCount={sumMakeupCount} skincareCount={sumSkincareCount} subscriptionsCount={sumSubscriptionsCount} expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getWeekdayCallback={getWeekday} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
+                <Route path="/" element={<Home sumCount={sumCount} makeupCount={sumMakeupCount} skincareCount={sumSkincareCount} subscriptionsCount={sumSubscriptionsCount} expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
                 </Home>}/>
                 <Route path="products" element={
                     <ProductList  products={products} removeOneUseCallback={removeOneUse} addOneUseCallback={addOneUse} deleteProductsCallback={deleteProducts} getProductsFromAPICallback={getProductsFromAPI}/>}

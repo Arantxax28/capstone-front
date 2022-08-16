@@ -7,6 +7,7 @@ ul {
     flex-direction: column;
     gap: .5vh;
     color:white;
+    padding-left: 1vw;
 }
 .item-entry {
     display: flex;
@@ -16,8 +17,8 @@ ul {
 
 .list-header {
     display: grid;
-    grid-template-columns: 18vw 16vw 11vw 11vw 5vw 8vw 9vw 8vw 2vw;
-    padding-left: 3vw;
+    grid-template-columns: 22vw 16vw 11vw 11vw 5vw 8vw 9vw 7vw 2vw;
+    padding-left: 1vw;
     font-weight: bold;
     font-family: "Helvetica Neue";
     font-size: 1vw;
@@ -28,7 +29,7 @@ ul {
     height: 100%;
     width: 95%;
     padding-top: 2vw;
-    padding-left: 2vw;
+    padding-left: 1vw;
 }
 
 .return{

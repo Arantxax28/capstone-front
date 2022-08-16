@@ -29,8 +29,16 @@ const ProductForm = (props) => {
     };
 
     return (
+        <div    className="form-page-all">
+        <div className="form-page-container">
+
         <div className="new-item-page">
             <h2>ADD NEW ITEM</h2>
+            <section className="page-right">
+                <div className="makeup-right"></div>
+                <div className="skincare-right"></div>
+                <div className="subscription-right"></div>
+            </section>
         <form onSubmit={handleFormSubmission} >
             <section className="form-block">
             <label htmlFor="Name">Name</label>
@@ -71,6 +79,8 @@ const ProductForm = (props) => {
             </section>
         </form>
 
+        </div>
+        </div>
         </div>
     );
 

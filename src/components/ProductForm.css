@@ -36,17 +36,17 @@ p{
     /*font-family: Avenir;*/
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding-top: 5vw;
-    padding-left: 5vw;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2vw;
 }
 
 .home-link {
     margin-left: 0.5em;
-    height: 45%;
+    margin-right: 0;
+    height: 40%;
     padding: 0.1em .7em 0.1em 1em;
-    font-size: 1vw;
+    font-size: .7vw;
     font-weight: bold;
     /*font-family: "Avenir";*/
     text-transform: uppercase;
@@ -62,7 +62,7 @@ p{
     margin-left: 0.5em;
     height: 1.6em;
     padding: 0em .5em 0.1em .5em;
-    font-size: 1vw;
+    font-size: .75vw;
     font-family: "Helvetica Neue";
     font-weight: bold;
     text-transform: uppercase;
@@ -77,5 +77,64 @@ p{
     background-color: transparent;
     border-color: black;
 }
+.makeup-right{
+    background-image: url('../../images/mu.png');
+    background-size: contain ;
+    border-radius: 50%;
+    height: 3vw;
+    width: 3vw;
+    display: block;
+    border-color:black;
+    border-style: solid;
+    /*margin-top: 10vw;*/
+}
+.skincare-right{
+    background-image: url('../../images/skin.png');
+    background-size: cover ;
+    border-radius: 50%;
+    height: 3vw;
+    width: 3vw;
+    display: block;
+    margin-left: 1vw;
+    border-color:black;
+    border-style: solid;
+}
 
+.subscription-right{
+    background-image: url('../../images/fitness.png');
+    background-size: contain ;
+    border-radius: 50%;
+    height: 3vw;
+    width: 3vw;
+    display: block;
+    margin-left: 1vw;
+    border-color:black;
+    border-style: solid;
+}
 
+.form-page-container{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-style: solid;
+    border-radius: 1vw;
+    border-color: black;
+    margin-top: 2%;
+    margin-left: 35%;
+    width: 30%;
+    padding: 0;
+}
+
+.page-right{
+    display: flex;
+    flex-direction: row;
+}
+
+form{
+    align-items: center;
+}
+
+h2{
+    margin-bottom: 3vw;
+}

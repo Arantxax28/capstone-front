@@ -1,11 +1,10 @@
 li.products-item{
     display: grid;
-    grid-template-columns: 18vw 16vw 11vw 11vw 6vw 8vw 8vw 2vw 1vw 1vw 10vw;
+    grid-template-columns: 22vw 16vw 11vw 11vw 6vw 8vw 8vw 2vw 1vw 1vw 10vw;
     background-color: white;
     border-radius: .5vw;
     /*border-bottom-style: solid;*/
     /*border-color:  black;*/
-    padding-left: 2vh;
     padding-right: -100vh;
     color: black;
 }
