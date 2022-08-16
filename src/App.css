@@ -5,8 +5,7 @@ html,body{
   background-color: #EBECF0;
   font-family: "Helvetica Neue";
 }
-
-h1{
+header{
   font-family: "Helvetica Neue";
   font-weight: lighter;
   font-size: 5vw;

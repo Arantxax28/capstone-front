@@ -32,7 +32,6 @@ console.log('home',props.makeupItems)
 //     };
 return (
 <div className="home-page">
-    <h1>hello!</h1>
     <section className="section-container">
         <section className="right-side">
                 <section className="category-section">

@@ -133,6 +133,7 @@ const App = () => {
 
     return (
         <div className="container">
+            <header>uzit</header>
             <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home sumCount={sumCount} makeupCount={sumMakeupCount} skincareCount={sumSkincareCount} subscriptionsCount={sumSubscriptionsCount} expiring={expiring} skincareItems={skincareItems} subscriptionItems={subscriptionItems} makeupItems={makeupItems} getProductsFromAPICallback={getProductsFromAPI} getMakeupCallback={getMakeup} getSkincareCallback={getSkincare} getSubscriptionCallback={getSubscriptions}>
