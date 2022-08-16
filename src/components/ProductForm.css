@@ -15,7 +15,7 @@ input{
 
 form,section {
     padding-bottom: .02vw;
-    padding-top: 2vw;
+    padding-top: 1.5vw;
 }
 
 p{
@@ -120,7 +120,7 @@ p{
     border-style: solid;
     border-radius: 1vw;
     border-color: black;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 35%;
     width: 30%;
     padding: 0;
