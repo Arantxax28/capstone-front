@@ -58,7 +58,7 @@ return (
                 </section>
                 <Link to="new">
                     {/*<span onClick={resetForm} className="new-section">ADD NEW PRODUCT</span>*/}
-                    <span className="new-section">ADD NEW PRODUCT</span>
+                    <span className="new-section">ADD NEW ITEM</span>
                 </Link>
 
         </section>
